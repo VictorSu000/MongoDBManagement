@@ -63,7 +63,7 @@ def migrate():
             jsFileName = time.strftime(
                 '%Y-%m-%d_%H:%M:%S', time.localtime(time.time())) +\
                 '_ip:' + request.remote_addr + '_x-forwarded-for:' +\
-                request.headers.get('X-Forwarded-For', '')
+                request.headers.get('X-Forwarded-For', '') + '.js'
             jsFileFullPath = settings.MIGARTEJSSCRIPTBASEPATH + jsFileName
             with open(jsFileFullPath, 'w') as jsFile:
                 jsFile.write(js)
